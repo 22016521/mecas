@@ -1,0 +1,942 @@
+/* start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #093e51;
+    --secondary-color: #dc4726;
+    --tertiary-clor: #064776;
+    --accent-color: #4997d0;
+    --section-padding: 40px;
+    --text-color: #333;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+   font-family: 'Times New Roman', Times, serif;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Global Responsive Adjustments */
+html, body {
+  font-size: 16px; 
+}
+
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+
+  .container {
+    width: 100%; 
+    padding: 10px;
+  }
+
+  /* Header */
+  .header .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .links ul {
+    position: static;
+    width: 100%; 
+    margin-top: 10px;
+  }
+
+  /* Landing Section */
+  .landing_text img {
+    max-width: 250px;
+    height: auto;
+  }
+
+  .image-background img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* About Section */
+  .about .container {
+    flex-direction: column; 
+    gap: 20px;
+  }
+
+  .about_img img {
+    width: 100%;
+    height: auto;
+    max-width: 300px; 
+  }
+
+  .about_txt {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .about_txt h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Problem Section */
+  .problem {
+    padding: 30px 15px;
+  }
+
+  .problem .special-heading {
+    font-size: 1.8rem;
+  }
+
+  .problem .problem-description {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .problem_video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .problem_video video {
+    height: auto;
+  }
+
+  /* Framework Section */
+  .framework {
+    padding: 30px 15px;
+  }
+
+  .framework_img img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Dashboard Section */
+  .dashboard iframe {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Feedback and Contact Section */
+  .sections {
+    flex-direction: column; 
+    gap: 20px;
+  }
+
+  .Feedback, .Contact {
+    max-width: 100%; 
+    text-align: center;
+    padding: 10px 15px;
+  }
+
+  .feedback-button {
+    font-size: 0.9rem;
+    width: 100%; 
+    margin: 10px 0;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.8rem;
+    padding: 15px;
+  }
+}
+
+/* Extra Small Screens (Mobile Viewports Below 480px) */
+@media (max-width: 480px) {
+  .special-heading {
+    font-size: 1.5rem;
+  }
+
+  .about_txt, .problem-description, .Contact p {
+    font-size: 0.9rem;
+  }
+
+  .feedback-button {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  /* Smaller landing logo */
+  .landing_text img {
+    max-width: 200px;
+  }
+
+  .about_img img {
+    max-width: 100%; 
+  }
+
+  .framework_img img {
+    max-width: 100%; 
+    margin-bottom: 20px;
+  }
+
+  .dashboard iframe {
+    width: 100%;
+    height: 300px; 
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.7rem;
+    padding: 10px;
+  }
+}
+/*End Responsive Layout*/
+
+/* Components Start */
+.special-heading {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 800;
+    margin: 20px 0 -10px;
+  }
+  .special-heading + p {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+/* Components End */
+
+/* start Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure it spans the full width */
+  z-index: 100; /* Keeps it above other elements */
+  background-color: #fff; /* Add background for visibility */
+}
+
+.container {
+  display: flex; /* Use flexbox to arrange items in a row */
+  justify-content: space-between; /* Spread logo and links across the header */
+  align-items: center; /* Vertically center the content */
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+  display: block; /* Ensure it's displayed as a block element */
+}
+
+.links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Display links in a row */
+}
+
+.links ul li {
+  margin-left: 5px; /* Space between list items */
+}
+
+.links ul li a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--main-color); /* Replace with actual color if needed */
+  padding: 15px;
+  font-size:18px;
+}
+
+.links ul li a:hover {
+  color: white; /* Replace with actual color */
+  background-color: var(--secondary-color);
+}
+
+/* Header End */
+
+/* Landing Start */
+.landing {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.image-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Ensures images don't overflow the container */
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.image-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;  /* Stack the images on top of each other */
+  top: 0;
+  left: 0;
+  opacity: 0;  /* Make images invisible initially */
+  transition: opacity 1s ease-in-out;  /* Smooth fade transition */
+}
+
+.image-background img.active {
+  opacity: 1;  /* Make the active image visible */
+}
+
+
+.landing_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(255, 255, 255);
+  padding: 20px;
+  border-radius: 50px;
+  z-index: 1; /* Ensure it is above the background */
+}
+
+.landing_text img {
+  max-width: 350px;
+  height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .landing {
+    height: 60vh;
+  }
+
+  .landing_text img {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing {
+    height: auto;
+    padding: 20px;
+  }
+
+  .landing_text img {
+    max-width: 50%;
+  }
+}
+/* Landing End */
+
+
+
+/* Start About Section */
+.about {
+  background: linear-gradient(135deg, #0099ff, #ff7f32); /* Blue to orange gradient */
+  height: auto;
+  overflow: hidden;
+  padding-top: 50px;
+  height: 100vh;
+}
+
+.about_txt {
+  display: flex; /* Use flexbox for horizontal layout */
+  align-items: center; /* Vertically center the items */
+  justify-content: center; /* Horizontally center the items */
+}
+
+
+.contract-img {
+  max-width: 40vw; /* Adjust image size */
+  height: 80vh;
+  border-radius: 10px; /* Rounded corners for the image */
+  margin-top: 50px;
+  padding: 40px;
+}
+
+
+.about-text {
+  padding: 30px;
+  margin-left: 10px;
+}
+
+.about_txt h2 {
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--main-color);
+  background-color: rgb(242, 242, 242);
+  padding: 15px 30px;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.about_txt h2 img {
+  height: 30%;
+  width: 30%;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.about_txt p {
+  font-size: 25px;
+  color: #000000;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  text-align: justify;
+  position: relative;
+}
+
+.about_txt p:hover {
+  font-weight: bold;
+}
+
+/* Subtle animation for the text */
+@keyframes textFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about_txt {
+  animation: textFadeIn 1s ease-out;
+}
+/* End About */
+
+
+/* Responsive Styles for Tablets (1024px and below) */
+@media (max-width: 1024px) {
+  .about {
+    height: auto; 
+    padding: 20px 10px;
+  }
+
+  .about .container {
+    flex-direction: column; 
+    gap: 40px;
+    text-align: center; 
+  }
+
+  .about_img img {
+    width: 100%; 
+    max-width: 400px; 
+  }
+
+  .about_txt {
+    font-size: 18px; 
+  }
+
+  .about_txt h2 {
+    font-size: 24px;
+  }
+}
+
+/* Responsive Styles for Mobile Screens (768px and below) */
+@media (max-width: 768px) {
+  .about {
+    padding: 20px 5px;
+  }
+
+  .about .container {
+    gap: 20px;
+  }
+
+  .about_img img {
+    max-width: 100%; 
+  }
+
+  .about_txt {
+    font-size: 16px; 
+    text-align: center; 
+  }
+
+  .about_txt h2 {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+}
+
+/* Extra Small Screens (480px and below) */
+@media (max-width: 480px) {
+  .about {
+    padding: 15px 5px;
+  }
+
+  .about_txt {
+    font-size: 14px;
+    line-height: 1.4; 
+  }
+
+  .about_img img {
+    max-width: 90%; 
+  }
+
+  .about_txt h2 {
+    font-size: 18px;
+  }
+}
+/* End About Section*/
+
+
+
+/* Problem Section */
+.problem {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #1D3557, #457B9D); /* Rich blue gradient for a sophisticated look */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.4); /* Soft inner shadow for depth */
+}
+
+/* Styling the Heading */
+.problem .special-heading {
+  font-family: "Faster One", system-ui, sans-serif; /* Ensure system font fallback */
+  font-size: 4rem; /* Slightly larger for more prominence */
+  margin-bottom: 25px; /* Increased margin for more space below */
+  color: #ecf0f1; /* Soft light gray color for the text */
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2), 0 0 25px rgba(255, 255, 255, 0.4); /* More elegant, soft shadow */
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center; /* Center the heading */
+  animation: fadeInUp 1.2s ease-out; /* Slightly longer duration for smoother animation */
+}
+
+/* Fade-In-Up animation for the heading */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Problem Description */
+.problem .problem-description {
+  font-size: 1.4rem;
+  color: #ffffff; /* Lighter text color for readability */
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.8;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Video Container */
+.problem_video {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+  margin: 30px auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4); /* Elegant shadow for depth */
+  background-color: #000;
+}
+
+/* Video Hover Effect */
+.problem_video:hover {
+  transform: scale(1.05);
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5);
+}
+
+.problem_video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+}
+
+
+/* Modal Styles */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); 
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal:target {
+  display: flex; 
+}
+
+.modal .modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+  border-radius: 8px;
+  background: #000;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal .modal-content video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 1001;
+}
+
+.modal .close:hover {
+  color: #ccc;
+}
+
+
+
+
+
+/* Dashboard Start */
+.solution {
+ padding-top: 80px;
+ padding-bottom: 50px;
+ background: linear-gradient(135deg, #f7e7c6, #d4af37); /* Soft gold to gold gradient */
+  text-align: center;
+ text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.4); /* Soft inner shadow for depth */
+}
+
+.solution .solution-title {
+  font-family: "Faster One", system-ui, sans-serif;
+  font-size: 3.5rem; /* Large, prominent title */
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2), 0 0 25px rgba(106, 95, 122, 0.4); /* Soft, glowing text shadow */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+}
+
+.solution .white-text {
+  font-size: 1.5rem;
+  color: var(--main-color);
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+}
+
+.solution-frame {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: #000;
+}
+
+.solution-frame iframe {
+  border: none;
+}
+/* Dashboard End */
+
+
+
+/* Framework Section */
+.framework {
+  padding-top: 80px;
+  padding-bottom: 50px;
+  animation: reactionAnimation 6s ease-in-out infinite; /* Smooth transition */
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
+}
+
+@keyframes reactionAnimation {
+  0% {
+    background: linear-gradient(135deg, #4D89A5, #A7C5D3); /* Soft science blue + light blue */
+  }
+  50% {
+    background: linear-gradient(135deg, #7FB5B5, #B2E2E2); /* Teal green tones for freshness */
+  }
+  100% {
+    background: linear-gradient(135deg, #4D89A5, #A7C5D3); /* Return to science blue */
+  }
+}
+
+
+
+
+.framework .special-heading {
+  font-family: "Faster One", system-ui, sans-serif; /* Ensure system font fallback */
+  font-size: 4rem; /* Slightly larger for more prominence */
+  margin-bottom: 25px; /* Increased margin for more space below */
+  color: #2C3E50; 
+  text-shadow: 2px 2px 7px rgba(236, 236, 236, 0.2), 0 0 25px rgba(255, 255, 255, 0.4); /* More elegant, soft shadow */
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center; /* Center the heading */
+  animation: fadeInUp 1.2s ease-out; /* Slightly longer duration for smoother animation */
+
+}
+
+.framework .special-description {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.8;
+  padding: 20px;
+  color: rgb(8, 0, 0);
+
+}
+
+.framework_img {
+  padding: 30px;
+  width: 98vw;
+  height: 60vh;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.framework_img img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(239, 239, 239, 0.2);
+}
+
+
+/* Modal Styles */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); 
+  align-items: center;
+  justify-content: center;
+  overflow: auto; 
+  padding: 20px;
+}
+
+.modal:target {
+  display: flex; 
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.caption {
+  color: #ccc;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #ffffff;
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.close:hover {
+  color: #f4f4f4;
+}
+
+/* Invisible Anchor to Stay in Place */
+#stay {
+  display: block;
+  height: 1px; 
+  visibility: hidden; 
+}
+
+/* End Framework Section */
+
+
+/* Start Sections */
+.solution-title {
+  color: #ffffff !important; 
+  font-size: 2.5rem;         
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.solution-title p {
+  color: #ffffff;
+  font-size: 1.0rem;
+}
+
+.white-text {
+  color: #ffffff; 
+  font-size: 1rem; 
+  text-align: center; 
+  margin-top: 5px;
+}
+
+
+.sections {
+    display: flex;             
+    justify-content: space-between; 
+    margin-left: 20px;
+    margin-right: 20px;
+}
+/* End Section */
+
+
+/* Start Feedback and Contact Sections */
+.sections {
+  display: flex;
+  justify-content: center; 
+  align-items: stretch; 
+  gap: 20px;
+  margin: 40px auto;
+}
+
+.Feedback, .Contact {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: 500px; 
+  padding: 15px 20px; 
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Feedback:hover, .Contact:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.Feedback h3 {
+  font-size: 1.5rem;
+  color: #064776;
+  margin-bottom: 10px;
+}
+
+.Feedback p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.feedback-button {
+  padding: 8px 16px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 0 10px;
+}
+
+.feedback-button:hover {
+  background-color: #064776;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.Contact h2 {
+  font-size: 1.5rem; 
+  color: #064776;
+  margin-bottom: 15px;
+}
+
+.Contact p {
+  font-size: 0.9rem; 
+  color: #333;
+  line-height: 1.5;
+}
+
+.Contact p br {
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sections {
+    flex-direction: column; 
+    gap: 20px; 
+  }
+
+  .Feedback, .Contact {
+    max-width: 100%; 
+    text-align: left;
+  }
+
+  .feedback-button {
+    margin: 10px 0;
+    width: 100%; 
+  }
+}
+/* End Feedback and Contact Section */
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+footer p {
+    margin: 0;
+}
+
