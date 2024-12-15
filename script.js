@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   slides[currentIndex].classList.add("active");
 
   // Change slides every 4 seconds
-  setInterval(showNextSlide, 4000);
+  setInterval(showNextSlide, 3000);
 });
 
 
